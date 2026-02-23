@@ -184,7 +184,75 @@ background:#fdf7f2;
 color:#b34b4b;
 text-align:center;
 }
+.ceremony-title{
+    font-family:'Playfair Display',serif;
+    font-size:40px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
 
+.ceremony-subtitle{
+    font-size:16px;
+    letter-spacing:3px;
+    margin-bottom:30px;
+    color:#b34b4b;
+}
+.ceremony-address{
+    margin-top:15px;
+    font-size:14px;
+    letter-spacing:1px;
+    color:#b34b4b;
+}
+.reception-address{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    margin-top:25px;
+    margin-bottom:30px;
+    color:#b34b4b;
+}
+
+.address-box{
+    max-width:350px;
+}
+
+.address-box h4{
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.address-box p{
+    font-size:14px;
+    line-height:1.6;
+}
+@media(max-width:768px){
+
+    .ceremony-title{
+        font-size:28px;
+    }
+
+    .ceremony-subtitle{
+        font-size:13px;        /* giảm nhẹ để đủ 1 dòng */
+        letter-spacing:1px;    /* giảm spacing để khỏi tràn */
+        white-space:nowrap;
+    }
+    .ceremony-address{
+        font-size:13px;
+        padding:0 10px;
+        line-height:1.5;
+    }
+    .reception-address{
+        flex-direction:column;
+        gap:20px;
+        padding:0 20px;
+    }
+
+    .address-box{
+        max-width:100%;
+    }
+
+}
 .time-big{
 font-size:48px;
 font-family:'Playfair Display',serif;
@@ -379,104 +447,129 @@ from{transform:rotate(0deg);}
 to{transform:rotate(360deg);}
 }
 
-/* POPUP */
+/* =========================
+   POPUP SLIDE FROM BOTTOM
+========================= */
+
 .money-popup{
 position:fixed;
-top:0;
 left:0;
+bottom:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.5);
-display:none;
+display:flex;
 justify-content:center;
-align-items:center;
+align-items:flex-end;
 z-index:5000;
-padding:20px;
+opacity:0;
+pointer-events:none;
+transition:.3s ease;
+}
+
+.money-popup.active{
+opacity:1;
+pointer-events:auto;
 }
 
 .money-card{
-background:#f3eaea;
+background:#fff;
 width:100%;
-max-width:800px;
-border-radius:20px;
-overflow:hidden;
-animation:zoom .3s ease;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
+max-width:600px;
+border-radius:25px 25px 0 0;
+transform:translateY(100%);
+transition:.4s ease;
+box-shadow:0 -10px 40px rgba(0,0,0,0.2);
 }
 
+.money-popup.active .money-card{
+transform:translateY(0);
+}
+
+/* Drag indicator */
+.money-card::before{
+content:"";
+width:60px;
+height:6px;
+background:#ddd;
+border-radius:10px;
+display:block;
+margin:12px auto;
+}
+
+/* Header */
 .money-header{
-background:#c3565a;
-color:white;
-padding:20px;
-display:flex;
-justify-content:center;
-align-items:center;
+text-align:center;
+padding:10px 20px 0 20px;
 position:relative;
+background:white;
+color:#c3565a;
 }
 
 .money-header h2{
-margin:0;
-font-weight:500;
+font-size:20px;
+margin-bottom:10px;
 }
 
 .close-btn{
 position:absolute;
 right:20px;
-top:15px;
-font-size:28px;
+top:10px;
+font-size:22px;
 cursor:pointer;
+color:#c3565a;
 }
 
+/* Body */
 .money-body{
 display:flex;
 justify-content:space-around;
 flex-wrap:wrap;
-padding:40px 20px;
-gap:40px;
+padding:25px 20px;
+gap:30px;
 }
 
 .bank-box{
 text-align:center;
 }
 
-.bank-box h3{
-color:#c3565a;
-margin-bottom:15px;
-}
-
 .bank-box img{
-width:200px;
+width:150px;
 border-radius:15px;
 background:white;
-padding:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+padding:8px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 .bank-name{
-margin-top:15px;
+margin-top:10px;
 font-weight:bold;
 color:#c3565a;
 }
 
 .owner{
-margin-top:5px;
-font-weight:500;
+font-size:14px;
+margin-top:3px;
 }
 
 .thanks-text{
 text-align:center;
-padding:20px;
+padding:15px;
+font-size:14px;
 color:#c3565a;
-font-size:16px;
 }
 
-@media(max-width:768px){
-.money-body{
-flex-direction:column;
+/* Desktop vẫn căn giữa */
+@media(min-width:768px){
+.money-popup{
 align-items:center;
 }
-.bank-box img{
-width:180px;
+.money-card{
+border-radius:20px;
+transform:scale(.9);
+}
+.money-popup.active .money-card{
+transform:scale(1);
 }
 }
 
@@ -571,17 +664,17 @@ Xem Thiệp
 
 <div class="family">
 <div class="family-box">
-<p>Ông Bà</p>
+<p>Nhà Trai</p>
 <h3>Đoàn Văn Lôi</h3>
 <h3>Trần Thị Kích</h3>
-<p>Thôn Chu Trần - Yên Lãng - Hà Nội</p>
+<p>Thôn Chu Trần - Tiến Thịnh - Mê Linh - Hà Nội</p>
 </div>
 
 <div class="family-box">
-<p>Ông Bà</p>
+<p>Nhà Gái</p>
 <h3>Vương Đức Bắc</h3>
 <h3>Nguyễn Thị Khuyên</h3>
-<p>43- phố đoàn kết- khu TTTM Ghé- Tân Trường- Cẩm Giàng- Hải Dương</p>
+<p>43 - phố Đoàn Kết- khu TTTM Ghé - Tân Trường - Cẩm Giàng - Hải Dương</p>
 </div>
 </div>
 
@@ -602,7 +695,13 @@ Xem Thiệp
 
 <!-- CEREMONY -->
 <section class="ceremony">
-<h2>LỄ THÀNH HÔN ĐƯỢC CỬ HÀNH TẠI TƯ GIA NHÀ TRAI</h2>
+<h2 class="ceremony-title">
+    LỄ THÀNH HÔN
+</h2>
+
+<p class="ceremony-subtitle">
+    ĐƯỢC CỬ HÀNH TẠI TƯ GIA NHÀ TRAI
+</p>
 <p>VÀO LÚC</p>
 
 <div class="time-big">09:00</div>
@@ -615,13 +714,16 @@ Xem Thiệp
 
 <p>2026</p>
 <p class="lunar">(TỨC NGÀY 20/01 BÍNH NGỌ)</p>
+<p class="ceremony-address">
+    Địa chỉ: Thôn Chu Trần - Tiến Thịnh - Mê Linh - Hà Nội
+</p>
 </section>
 
 <!-- RECEPTION -->
 <section class="reception">
 <h2>TIỆC CƯỚI SẼ DIỄN RA VÀO LÚC:</h2>
 
-<div class="time-big">18:00</div>
+<div class="time-big">16:00</div>
 
 <div class="date-row">
 <span>THỨ BẢY</span>
@@ -631,16 +733,28 @@ Xem Thiệp
 
 <p>2026</p>
 <p class="lunar">(TỨC NGÀY 19/01 BÍNH NGỌ)</p>
+<div class="reception-address">
 
+    <div class="address-box">
+        <h4>📍 Nhà Trai</h4>
+        <p>Thôn Chu Trần - Tiến Thịnh - Mê Linh - Hà Nội</p>
+    </div>
+
+    <div class="address-box">
+        <h4>📍 Nhà Gái</h4>
+        <p>43 Phố Đoàn Kết - Tân Trường - Cẩm Giàng - Hải Dương</p>
+    </div>
+
+</div>
 <div class="schedule">
 <div>
 <p>ĐÓN KHÁCH</p>
-<strong>17:00</strong>
+<strong>16:00</strong>
 </div>
 
 <div>
 <p>KHAI TIỆC</p>
-<strong>18:00</strong>
+<strong>17:00</strong>
 </div>
 </div>
 <!-- COUNTDOWN -->
@@ -806,16 +920,48 @@ if(currentIndex<0) currentIndex=images.length-1;
 if(currentIndex>=images.length) currentIndex=0;
 document.getElementById("galleryImage").src=images[currentIndex];
 }
+/* ===== MOBILE SWIPE FOR GALLERY ===== */
 
+var startX = 0;
+var endX = 0;
+
+var galleryImage = document.getElementById("galleryImage");
+
+galleryImage.addEventListener("touchstart", function(e){
+  startX = e.changedTouches[0].screenX;
+});
+
+galleryImage.addEventListener("touchend", function(e){
+  endX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe(){
+  var diff = startX - endX;
+
+  // Vuốt trái → ảnh tiếp theo
+  if(diff > 50){
+    changeSlide(1);
+  }
+
+  // Vuốt phải → ảnh trước
+  if(diff < -50){
+    changeSlide(-1);
+  }
+}
 /* QR */
 function openEnvelope(){
-document.getElementById("moneyPopup").style.display="flex";
+document.getElementById("moneyPopup").classList.add("active");
 }
 
 function closeEnvelope(){
-document.getElementById("moneyPopup").style.display="none";
+document.getElementById("moneyPopup").classList.remove("active");
 }
-
+document.getElementById("moneyPopup").addEventListener("click", function(e){
+if(e.target === this){
+this.classList.remove("active");
+}
+});
 /* MUSIC */
 function toggleMusic(){
 var music=document.getElementById("music");
