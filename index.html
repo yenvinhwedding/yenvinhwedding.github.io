@@ -18,10 +18,10 @@ body{
 font-family:'Poppins',sans-serif;
 background:#fffaf5;
 scroll-behavior:smooth;
+overflow:hidden;   /* khóa scroll lúc đầu */
 overflow-x:hidden;
 text-align:center;
 }
-
 /* HERO */
 .hero{
 height:100vh;
@@ -585,6 +585,9 @@ border-radius:50%;
 cursor:pointer;
 z-index:1000;
 }
+.music-btn.playing{
+    animation: spin 3s linear infinite;
+}
 .rsvp{
 padding:100px 10%;
 text-align:center;
@@ -653,7 +656,7 @@ margin-top:50px;
 
 <h1 class="hero-name bottom">Hải Yến</h1>
 
-<button onclick="scrollToInfo()" class="hero-btn">
+<button onclick="openInvitation()" class="hero-btn">
 Xem Thiệp
 </button>
 
@@ -874,7 +877,7 @@ Cảm ơn bạn đã đồng hành cùng chúng mình trong ngày trọng đại
 
 </section>
 <!-- MUSIC -->
-<audio id="music" loop>
+<audio id="music" autoplay loop muted>
 <source src="assets/musics/music1.mp3" type="audio/mp3">
 </audio>
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
@@ -884,10 +887,23 @@ Cảm ơn bạn đã đồng hành cùng chúng mình trong ngày trọng đại
 <script>
 AOS.init();
 
-function scrollToInfo(){
-document.getElementById("info").scrollIntoView({behavior:"smooth"});
-}
+function openInvitation(){
 
+    // Mở scroll lại
+    document.body.style.overflow = "auto";
+
+    // Scroll xuống
+    document.getElementById("info")
+        .scrollIntoView({behavior:"smooth"});
+
+    // Bật nhạc
+    var music = document.getElementById("music");
+    var btn = document.querySelector(".music-btn");
+
+    music.muted = false;
+    music.play().catch(function(e){});
+    btn.classList.add("playing");
+}
 /* GALLERY */
 var images=[
 "assets/images/img1.jpg",
@@ -964,11 +980,26 @@ this.classList.remove("active");
 });
 /* MUSIC */
 function toggleMusic(){
-var music=document.getElementById("music");
-if(music.paused){music.play();}
-else{music.pause();}
-}
+    var music = document.getElementById("music");
+    var btn = document.querySelector(".music-btn");
 
+    if(music.paused){
+        music.play();
+        btn.classList.add("playing");
+    }else{
+        music.pause();
+        btn.classList.remove("playing");
+    }
+}
+/* AUTO PLAY MUSIC AFTER FIRST CLICK */
+document.addEventListener("click", function () {
+
+    var music = document.getElementById("music");
+
+    music.muted = false;
+    music.play().catch(function(e){});
+
+}, { once: true });
 /* COUNTDOWN */
 var weddingDate = new Date("Mar 07, 2026 18:00:00").getTime();
 
