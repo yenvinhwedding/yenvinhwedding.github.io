@@ -6,206 +6,478 @@
 <title>Wedding | Hải Yến & Quang Vinh</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<!-- Swiper -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-font-family:'Montserrat',sans-serif;
+font-family:'Poppins',sans-serif;
 background:#fffaf5;
 scroll-behavior:smooth;
 overflow-x:hidden;
 text-align:center;
-animation:fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
 }
 
 /* HERO */
 .hero{
 height:100vh;
-background:url('assets/images/img1.jpg') center/cover no-repeat;
+background:url('assets/images/img10.jpg') center/cover no-repeat;
 display:flex;
 justify-content:center;
 align-items:center;
-color:white;
+text-align:center;
 position:relative;
 }
 
-.hero::after{
-content:"";
-position:absolute;
-width:100%;height:100%;
-background:rgba(0,0,0,0.45);
-}
+/* BỎ lớp phủ đen nếu có */
+/* Xóa .hero::after nếu đang dùng */
 
 .hero-content{
-position:relative;
 z-index:2;
 }
 
-.hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:64px;
-letter-spacing:3px;
-text-shadow:0 5px 20px rgba(0,0,0,0.3);
+.hero-name{
+font-family:'Great Vibes',cursive;
+font-size:90px;
+font-weight:400; 
+color:white;
+margin:10px 0;
 }
 
-.hero p{
-margin-top:20px;
-font-size:22px;
+.hero-and{
+font-family:'Great Vibes',cursive;
+font-size:60px;
+font-weight:400; 
+color:white;
+margin:10px 0;
 }
 
-.hero button{
-margin-top:30px;
-padding:14px 40px;
+.hero-btn{
+margin-top:40px;
+padding:12px 35px;
 border:none;
 border-radius:30px;
-background:gold;
+background:#c3565a;
+color:white;
 cursor:pointer;
-font-weight:bold;
 transition:.3s;
-font-size:16px;
 }
 
-.hero button:hover{
-background:white;
-transform:scale(1.05);
+.hero-btn:hover{
+opacity:.8;
 }
 
+@media(max-width:768px){
+.hero-name{
+font-size:60px;
+}
+.hero-and{
+font-size:40px;
+}
+}
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35); /* overlay tối nhẹ */
+top:0;
+left:0;
+}
+@keyframes fadeUp {
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.hero-name{
+font-family:'Great Vibes',cursive;
+font-size:90px;
+color:#ffffff;
+margin:10px 0;
+opacity:0;
+animation:fadeUp 1.5s ease forwards;
+}
+
+.hero-name.bottom{
+animation-delay:.6s;
+}
+
+.hero-and{
+font-family:'Great Vibes',cursive;
+font-size:60px;
+color:#ffffff;
+margin:10px 0;
+opacity:0;
+animation:fadeUp 1.2s ease forwards;
+animation-delay:.3s;
+}
+.hero-name,
+.hero-and{
+text-shadow:
+0 4px 15px rgba(0,0,0,0.6),
+0 8px 30px rgba(0,0,0,0.4);
+}
 /* SECTION */
 section{
 padding:100px 10%;
 }
 
 h2{
-font-family:'Cormorant Garamond',serif;
-font-size:42px;
+font-family:'Playfair Display',serif;
+font-size:36px;
 margin-bottom:50px;
-letter-spacing:2px;
 }
 
-h3{
-font-family:'Cormorant Garamond',serif;
-font-size:28px;
-margin-top:20px;
+/* INFOR */
+.wedding-info{
+background:url('assets/images/background.jpg') center/cover no-repeat;
+color:#b34b4b;
+text-align:center;
 }
 
-p{
-font-size:18px;
-line-height:1.8;
-color:#444;
-}
-
-/* COUPLE */
-.couple{
+.family{
 display:flex;
+justify-content:space-between;
 flex-wrap:wrap;
+margin-bottom:60px;
+}
+
+.family-box{
+width:45%;
+min-width:300px;
+}
+
+.family-box h3{
+font-family:'Playfair Display',serif;
+font-size:22px;
+margin:5px 0;
+}
+
+.announcement p{
+letter-spacing:2px;
+margin:5px 0;
+}
+
+.announcement h1{
+font-family:'Playfair Display',serif;
+font-size:48px;
+margin:20px 0;
+}
+
+.and{
+font-size:40px;
+margin:20px 0;
+}
+
+.ceremony,.reception{
+background:#fdf7f2;
+color:#b34b4b;
+text-align:center;
+}
+
+.time-big{
+font-size:48px;
+font-family:'Playfair Display',serif;
+margin:20px 0;
+}
+
+.date-row{
+display:flex;
 justify-content:center;
-gap:80px;
+align-items:center;
+gap:20px;
+margin:15px 0;
 }
 
-.person{
-width:300px;
+.date-number{
+font-size:40px;
+font-family:'Playfair Display',serif;
+border-left:1px solid #b34b4b;
+border-right:1px solid #b34b4b;
+padding:0 20px;
 }
 
-.person img{
+.lunar{
+font-size:14px;
+margin-top:10px;
+}
+
+.schedule{
+display:flex;
+justify-content:center;
+gap:60px;
+margin-top:30px;
+}
+
+@media(max-width:768px){
+.family{
+flex-direction:column;
+align-items:center;
+}
+.family-box{
 width:100%;
-border-radius:20px;
-box-shadow:0 15px 35px rgba(0,0,0,0.1);
-transition:.4s;
+margin-bottom:40px;
 }
-
-.person img:hover{
-transform:scale(1.05);
 }
-
 /* COUNTDOWN */
-.countdown{
-font-size:28px;
+.countdown-new{
+margin-top:30px;
+font-size:20px;
+color:#b34b4b;
 font-weight:500;
 letter-spacing:1px;
 }
 
-/* SWIPER */
-.swiper{
-width:100%;
-padding-bottom:40px;
+/* ================= ALBUM GRID ================= */
+
+.album-section{
+background:#f8f4ef;
+color:#b34b4b;
 }
 
-.swiper-slide img{
+.album-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+max-width:900px;
+margin:auto;
+}
+
+.album-grid img{
 width:100%;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* QR BUTTON */
-.qr-btn{
-position:fixed;
-right:20px;
-bottom:20px;
-background:gold;
-border:none;
-padding:14px 30px;
-border-radius:50px;
-font-weight:bold;
 cursor:pointer;
-z-index:1000;
-transition:.3s;
+transition:.4s;
 }
 
-.qr-btn:hover{
-transform:scale(1.1);
+.album-grid img:hover{
+transform:scale(1.03);
+}
+
+.album-more{
+position:relative;
+cursor:pointer;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+color:white;
+font-size:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:20px;
+font-weight:bold;
+}
+
+/* GALLERY MODAL */
+
+.gallery-modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.gallery-modal img{
+max-width:85%;
+max-height:85%;
+border-radius:10px;
+}
+
+.close-btn{
+position:absolute;
+top:30px;
+right:40px;
+color:white;
+font-size:30px;
+cursor:pointer;
+}
+
+.nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+color:white;
+font-size:40px;
+cursor:pointer;
+padding:20px;
+}
+
+.prev{left:30px;}
+.next{right:30px;}
+
+.lucky-money{
+text-align:center;
+padding:100px 10%;
+background:url('assets/images/background.jpg') center/cover no-repeat;
+color:#b34b4b;
+}
+
+.envelope-container{
+position:relative;
+display:inline-block;
+cursor:pointer;
+}
+
+.envelope{
+width:200px;
+height:280px;
+background:#c62828;
+border-radius:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 0 40px rgba(255,215,0,0.6);
+position:relative;
+transition:.4s;
+}
+
+.envelope:hover{
+transform:scale(1.05);
+}
+
+.double-happy{
+font-size:60px;
+color:gold;
+}
+
+.open-text{
+margin-top:15px;
+color:#b34b4b;
+}
+
+.bless-text{
+margin-top:40px;
+font-size:18px;
+}
+
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 /* POPUP */
-.popup{
+.money-popup{
 position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.6);
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
 display:none;
 justify-content:center;
 align-items:center;
-z-index:2000;
+z-index:5000;
+padding:20px;
 }
 
-.popup-content{
-background:white;
-padding:50px;
+.money-card{
+background:#f3eaea;
+width:100%;
+max-width:800px;
 border-radius:20px;
-width:90%;
-max-width:600px;
+overflow:hidden;
+animation:zoom .3s ease;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+
+.money-header{
+background:#c3565a;
+color:white;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
 position:relative;
-animation:zoom .4s ease;
 }
 
-.popup img{
-width:160px;
-margin:15px;
+.money-header h2{
+margin:0;
+font-weight:500;
 }
 
-.close{
+.close-btn{
 position:absolute;
 right:20px;
 top:15px;
-font-size:24px;
+font-size:28px;
 cursor:pointer;
 }
 
-@keyframes zoom{
-from{transform:scale(.7);opacity:0}
-to{transform:scale(1);opacity:1}
+.money-body{
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+padding:40px 20px;
+gap:40px;
+}
+
+.bank-box{
+text-align:center;
+}
+
+.bank-box h3{
+color:#c3565a;
+margin-bottom:15px;
+}
+
+.bank-box img{
+width:200px;
+border-radius:15px;
+background:white;
+padding:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.bank-name{
+margin-top:15px;
+font-weight:bold;
+color:#c3565a;
+}
+
+.owner{
+margin-top:5px;
+font-weight:500;
+}
+
+.thanks-text{
+text-align:center;
+padding:20px;
+color:#c3565a;
+font-size:16px;
+}
+
+@media(max-width:768px){
+.money-body{
+flex-direction:column;
+align-items:center;
+}
+.bank-box img{
+width:180px;
+}
 }
 
 /* MUSIC */
@@ -215,25 +487,63 @@ left:20px;
 bottom:20px;
 background:white;
 border:none;
-padding:14px;
+padding:12px 15px;
 border-radius:50%;
 cursor:pointer;
 z-index:1000;
 }
+.rsvp{
+padding:100px 10%;
+text-align:center;
+background:#fdf7f2;
+}
 
+.rsvp h2{
+color:#c3565a;
+margin-bottom:40px;
+}
+
+#rsvpForm{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea{
+padding:12px;
+border-radius:10px;
+border:1px solid #ddd;
+font-family:'Poppins';
+}
+
+#rsvpForm button{
+background:#c3565a;
+color:white;
+border:none;
+padding:12px;
+border-radius:30px;
+cursor:pointer;
+}
+
+#rsvpForm button:hover{
+opacity:.8;
+}
 /* FOOTER */
 footer{
 background:#111;
 color:white;
-padding:50px;
-margin-top:80px;
-font-size:16px;
+padding:40px;
+margin-top:50px;
 }
 
-/* RESPONSIVE */
 @media(max-width:768px){
-.hero h1{font-size:40px}
+.hero h1{font-size:38px}
 .couple{flex-direction:column;align-items:center}
+.album-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -242,82 +552,221 @@ font-size:16px;
 
 <!-- HERO -->
 <div class="hero">
-<div class="hero-content" data-aos="fade-up">
-<h1>Hải Yến ♥ Quang Vinh</h1>
-<p>Save The Date - 20.12.2026</p>
-<button onclick="scrollToInfo()">Xem Thiệp</button>
+<div class="hero-content">
+
+<h1 class="hero-name top">Quang Vinh</h1>
+
+<div class="hero-and">&</div>
+
+<h1 class="hero-name bottom">Hải Yến</h1>
+
+<button onclick="scrollToInfo()" class="hero-btn">
+Xem Thiệp
+</button>
+
+</div>
+</div>
+<!-- WEDDING INFO -->
+<section id="info" class="wedding-info">
+
+<div class="family">
+<div class="family-box">
+<p>Ông Bà</p>
+<h3>Đoàn Văn Lôi</h3>
+<h3>Trần Thị Kích</h3>
+<p>Thôn Chu Trần - Yên Lãng - Hà Nội</p>
+</div>
+
+<div class="family-box">
+<p>Ông Bà</p>
+<h3>Vương Đức Bắc</h3>
+<h3>Nguyễn Thị Khuyên</h3>
+<p>43- phố đoàn kết- khu TTTM Ghé- Tân Trường- Cẩm Giàng- Hải Dương</p>
 </div>
 </div>
 
-<!-- COUPLE -->
-<section id="info">
-<h2 data-aos="fade-up">Cô Dâu & Chú Rể</h2>
-<div class="couple">
-<div class="person" data-aos="fade-right">
-<img src="assets/images/img2.jpg">
-<h3>Hải Yến</h3>
-<p>Dịu dàng, tinh tế và yêu gia đình.</p>
+<div class="announcement">
+<p>TRÂN TRỌNG BÁO TIN</p>
+<p>LỄ THÀNH HÔN CỦA CON CHÚNG TÔI</p>
+
+<h1>Đoàn Quang Vinh</h1>
+<span>CON TRAI</span>
+
+<div class="and">&</div>
+
+<h1>Vương Thị Hải Yến</h1>
+<span>CON GÁI</span>
 </div>
 
-<div class="person" data-aos="fade-left">
-<img src="assets/images/img3.jpg">
-<h3>Quang Vinh</h3>
-<p>Trưởng thành, trách nhiệm và luôn yêu thương Hải Yến.</p>
-</div>
-</div>
 </section>
 
+<!-- CEREMONY -->
+<section class="ceremony">
+<h2>LỄ THÀNH HÔN ĐƯỢC CỬ HÀNH TẠI TƯ GIA NHÀ TRAI</h2>
+<p>VÀO LÚC</p>
+
+<div class="time-big">09:00</div>
+
+<div class="date-row">
+<span>CHỦ NHẬT</span>
+<div class="date-number">08</div>
+<span>THÁNG 03</span>
+</div>
+
+<p>2026</p>
+<p class="lunar">(TỨC NGÀY 20/01 BÍNH NGỌ)</p>
+</section>
+
+<!-- RECEPTION -->
+<section class="reception">
+<h2>TIỆC CƯỚI SẼ DIỄN RA VÀO LÚC:</h2>
+
+<div class="time-big">18:00</div>
+
+<div class="date-row">
+<span>THỨ BẢY</span>
+<div class="date-number">07</div>
+<span>THÁNG 03</span>
+</div>
+
+<p>2026</p>
+<p class="lunar">(TỨC NGÀY 19/01 BÍNH NGỌ)</p>
+
+<div class="schedule">
+<div>
+<p>ĐÓN KHÁCH</p>
+<strong>17:00</strong>
+</div>
+
+<div>
+<p>KHAI TIỆC</p>
+<strong>18:00</strong>
+</div>
+</div>
 <!-- COUNTDOWN -->
-<section>
-<h2 data-aos="fade-up">Đếm Ngược Ngày Cưới</h2>
-<div class="countdown" id="countdown"></div>
+<div class="countdown-new" id="countdown"></div>
+
 </section>
 
-<!-- GALLERY -->
-<section>
-<h2 data-aos="fade-up">Album Ảnh Cưới</h2>
-<div class="swiper">
-<div class="swiper-wrapper">
-<div class="swiper-slide"><img src="assets/images/img1.jpg"></div>
-<div class="swiper-slide"><img src="assets/images/img2.jpg"></div>
-<div class="swiper-slide"><img src="assets/images/img3.jpg"></div>
-<div class="swiper-slide"><img src="assets/images/img4.jpg"></div>
+
+
+<!-- ALBUM -->
+<section class="album-section">
+<h2 data-aos="fade-up">ALBUM ẢNH CƯỚI</h2>
+
+<div class="album-grid">
+<img src="assets/images/img1.jpg" onclick="openGallery(0)">
+<img src="assets/images/img2.jpg" onclick="openGallery(1)">
+<img src="assets/images/img3.jpg" onclick="openGallery(2)">
+<div class="album-more" onclick="openGallery(3)">
+<img src="assets/images/img4.jpg">
+<div class="overlay">+6</div>
 </div>
-<div class="swiper-pagination"></div>
 </div>
 </section>
 
-<!-- QR -->
-<button class="qr-btn" onclick="openPopup()">Mừng Cưới</button>
-
-<div class="popup" id="popup">
-<div class="popup-content">
-<span class="close" onclick="closePopup()">✖</span>
-<h2>Mừng Cưới Hải Yến & Quang Vinh</h2>
-<p>Quét mã QR để gửi lời chúc ❤️</p>
-
-<h3>QR Cô Dâu</h3>
-<img src="assets/images/img5.jpg">
-
-<h3>QR Chú Rể</h3>
-<img src="assets/images/img6.jpg">
-</div>
+<!-- GALLERY MODAL -->
+<div class="gallery-modal" id="galleryModal">
+<span class="close-btn" onclick="closeGallery()">✕</span>
+<img id="galleryImage">
+<div class="nav prev" onclick="changeSlide(-1)">❮</div>
+<div class="nav next" onclick="changeSlide(1)">❯</div>
 </div>
 
+<!-- LUCKY MONEY -->
+<section class="lucky-money">
+
+<h2>Hộp Mừng Cưới</h2>
+
+<div class="envelope-container" onclick="openEnvelope()">
+
+
+<div class="envelope">
+<div class="double-happy">囍</div>
+</div>
+
+<p class="open-text">Nhấn để mở</p>
+
+</div>
+
+<p class="bless-text">
+Sự hiện diện của quý khách là niềm vinh hạnh của gia đình chúng tôi!
+</p>
+
+</section>
+
+<!-- POPUP QR -->
+<!-- POPUP MUNG CUOI -->
+<div class="money-popup" id="moneyPopup">
+
+<div class="money-card">
+
+<div class="money-header">
+<h2>Hộp Mừng Cưới</h2>
+<span class="close-btn" onclick="closeEnvelope()">×</span>
+</div>
+
+<div class="money-body">
+
+<div class="bank-box">
+<h3>Chú Rể - Quang Vinh</h3>
+<img src="assets/images/qr-chu-re.png">
+<p class="bank-name">MBBank</p>
+<p>0348840032</p>
+<p class="owner">Doan Quang Vinh</p>
+</div>
+
+<div class="bank-box">
+<h3>Cô Dâu - Hải Yến</h3>
+<img src="assets/images/qr-co-dau.png">
+<p class="bank-name">VPBank</p>
+<p>0362203309</p>
+<p class="owner">Vuong Thi Hai Yen</p>
+</div>
+
+</div>
+
+<p class="thanks-text">
+Cảm ơn bạn đã đồng hành cùng chúng mình trong ngày trọng đại!
+</p>
+
+</div>
+
+</div>
+<!-- RSVP -->
+<section class="rsvp">
+<h2>Xác Nhận Tham Gia</h2>
+
+<form id="rsvpForm">
+
+<input type="text" name="name" placeholder="Họ và tên" required>
+
+<input type="number" name="guests" placeholder="Số người tham dự" required>
+
+<select name="attending">
+<option value="Có tham dự">Có tham dự</option>
+<option value="Không tham dự">Không tham dự</option>
+</select>
+
+<textarea name="message" placeholder="Gửi lời chúc đến cô dâu chú rể"></textarea>
+
+<button type="submit">Gửi xác nhận</button>
+
+</form>
+
+<p id="rsvpMessage"></p>
+
+</section>
+
+</section>
 <!-- MUSIC -->
 <audio id="music" loop>
 <source src="assets/musics/music1.mp3" type="audio/mp3">
 </audio>
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-<footer>
-<p>Thank you for celebrating our special day ♥</p>
-</footer>
 
-<!-- JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
 <script>
 AOS.init();
 
@@ -325,49 +774,105 @@ function scrollToInfo(){
 document.getElementById("info").scrollIntoView({behavior:"smooth"});
 }
 
-var swiper = new Swiper(".swiper", {
-loop:true,
-pagination:{el:".swiper-pagination", clickable:true},
-autoplay:{delay:3000, disableOnInteraction:false}
-});
+/* GALLERY */
+var images=[
+"assets/images/img1.jpg",
+"assets/images/img2.jpg",
+"assets/images/img3.jpg",
+"assets/images/img4.jpg",
+"assets/images/img5.jpg",
+"assets/images/img6.jpg",
+"assets/images/img7.jpg",
+"assets/images/img8.jpg",
+"assets/images/img9.jpg",
+"assets/images/img10.jpg"
+];
 
-function openPopup(){
-document.getElementById("popup").style.display="flex";
-}
-function closePopup(){
-document.getElementById("popup").style.display="none";
+var currentIndex=0;
+
+function openGallery(index){
+currentIndex=index;
+document.getElementById("galleryModal").style.display="flex";
+document.getElementById("galleryImage").src=images[currentIndex];
 }
 
+function closeGallery(){
+document.getElementById("galleryModal").style.display="none";
+}
+
+function changeSlide(step){
+currentIndex+=step;
+if(currentIndex<0) currentIndex=images.length-1;
+if(currentIndex>=images.length) currentIndex=0;
+document.getElementById("galleryImage").src=images[currentIndex];
+}
+
+/* QR */
+function openEnvelope(){
+document.getElementById("moneyPopup").style.display="flex";
+}
+
+function closeEnvelope(){
+document.getElementById("moneyPopup").style.display="none";
+}
+
+/* MUSIC */
 function toggleMusic(){
 var music=document.getElementById("music");
 if(music.paused){music.play();}
 else{music.pause();}
 }
 
-document.body.addEventListener("click",function(){
-var music=document.getElementById("music");
-if(music.paused){music.play();}
-},{once:true});
-
-var weddingDate=new Date("Dec 20, 2026 00:00:00").getTime();
+/* COUNTDOWN */
+var weddingDate = new Date("Mar 07, 2026 18:00:00").getTime();
 
 setInterval(function(){
-var now=new Date().getTime();
-var distance=weddingDate-now;
 
-if(distance<0){
-document.getElementById("countdown").innerHTML="Hôm nay là ngày cưới 💍";
+var now = new Date().getTime();
+var distance = weddingDate - now;
+
+if(distance < 0){
+document.getElementById("countdown").innerHTML = "Đã diễn ra";
 return;
 }
 
-var d=Math.floor(distance/(1000*60*60*24));
-var h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-var m=Math.floor((distance%(1000*60*60))/(1000*60));
-var s=Math.floor((distance%(1000*60))/1000);
+var days = Math.floor(distance / (1000*60*60*24));
+var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+var seconds = Math.floor((distance % (1000*60)) / 1000);
 
-document.getElementById("countdown").innerHTML=
-d+" ngày "+h+" giờ "+m+" phút "+s+" giây ";
+document.getElementById("countdown").innerHTML =
+days + " ngày " +
+hours + " giờ " +
+minutes + " phút " +
+seconds + " giây";
+
 },1000);
+document.getElementById("rsvpForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+var formData = {
+name: this.name.value,
+guests: this.guests.value,
+attending: this.attending.value,
+message: this.message.value
+};
+
+fetch("https://script.google.com/macros/s/AKfycbzX60v0UmfFjmp0hbGi6hOPEe1LQKWgYbXVzrfnBQMYyBA9aApur2LtmWCXQUvgeAdP/exec", {
+method: "POST",
+body: JSON.stringify(formData)
+})
+.then(res => res.json())
+.then(data => {
+document.getElementById("rsvpMessage").innerHTML =
+"Đã gửi xác nhận thành công ❤️";
+this.reset();
+})
+.catch(err => {
+document.getElementById("rsvpMessage").innerHTML =
+"Có lỗi xảy ra, vui lòng thử lại.";
+});
+});
 </script>
 
 </body>
