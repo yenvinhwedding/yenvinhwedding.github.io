@@ -895,12 +895,8 @@ AOS.init();
 
 function openInvitation(){
 
-    // Mở scroll lại
+    // Mở scroll
     document.body.classList.remove("lock-scroll");
-
-    // Scroll xuống nội dung
-    document.getElementById("info")
-        .scrollIntoView({behavior:"smooth"});
 
     // Bật nhạc
     var music = document.getElementById("music");
@@ -909,6 +905,33 @@ function openInvitation(){
     music.muted = false;
     music.play().catch(function(e){});
     btn.classList.add("playing");
+
+    // Scroll mượt custom
+    smoothScrollTo(document.getElementById("info"), 1200);
+}
+function smoothScrollTo(target, duration){
+
+    var targetPosition = target.offsetTop;
+    var startPosition = window.pageYOffset;
+    var distance = targetPosition - startPosition;
+    var startTime = null;
+
+    function animation(currentTime){
+        if(startTime === null) startTime = currentTime;
+        var timeElapsed = currentTime - startTime;
+        var run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if(timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d){
+        t /= d/2;
+        if(t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
 }
 /* GALLERY */
 var images=[
