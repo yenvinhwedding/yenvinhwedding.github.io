@@ -2,7 +2,9 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Wedding | Hải Yến & Quang Vinh</title>
 
 <!-- Google Fonts -->
@@ -11,22 +13,36 @@
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+<style> 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html{
+-webkit-text-size-adjust:100%;
+}
 
 body{
-font-family:'Poppins',sans-serif;
+font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Poppins',sans-serif;
 background:#fffaf5;
 scroll-behavior:smooth;
 overflow-x:hidden;
 text-align:center;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
 }
 /* LOCK SCROLL */
-body.lock-scroll{
-    overflow:hidden;
-    height:100vh;
-    position:fixed;
-    width:100%;
+body.lock-scroll,
+body.popup-open{
+overflow:hidden;
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
 }
 /* HERO */
 .hero{
@@ -37,6 +53,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 position:relative;
+padding-top:env(safe-area-inset-top);
 }
 
 /* BỎ lớp phủ đen nếu có */
@@ -48,7 +65,7 @@ z-index:2;
 
 .hero-name{
 font-family:'Great Vibes',cursive;
-font-size:90px;
+font-size:clamp(48px, 12vw, 90px);
 font-weight:400; 
 color:white;
 margin:10px 0;
@@ -56,7 +73,7 @@ margin:10px 0;
 
 .hero-and{
 font-family:'Great Vibes',cursive;
-font-size:60px;
+font-size:clamp(36px, 8vw, 60px);
 font-weight:400; 
 color:white;
 margin:10px 0;
@@ -64,27 +81,22 @@ margin:10px 0;
 
 .hero-btn{
 margin-top:40px;
-padding:12px 35px;
+padding:15px 40px;
+min-height:44px;
+min-width:120px;
 border:none;
 border-radius:30px;
 background:#c3565a;
 color:white;
 cursor:pointer;
 transition:.3s;
+font-size:16px;
 }
 
 .hero-btn:hover{
 opacity:.8;
 }
 
-@media(max-width:768px){
-.hero-name{
-font-size:60px;
-}
-.hero-and{
-font-size:40px;
-}
-}
 .hero::after{
 content:"";
 position:absolute;
@@ -107,7 +119,7 @@ transform:translateY(0);
 
 .hero-name{
 font-family:'Great Vibes',cursive;
-font-size:90px;
+font-size:clamp(48px, 12vw, 90px);
 color:#ffffff;
 margin:10px 0;
 opacity:0;
@@ -120,7 +132,7 @@ animation-delay:.6s;
 
 .hero-and{
 font-family:'Great Vibes',cursive;
-font-size:60px;
+font-size:clamp(36px, 8vw, 60px);
 color:#ffffff;
 margin:10px 0;
 opacity:0;
@@ -140,7 +152,7 @@ padding:100px 10%;
 
 h2{
 font-family:'Playfair Display',serif;
-font-size:36px;
+font-size:clamp(24px, 6vw, 36px);
 margin-bottom:50px;
 }
 
@@ -176,12 +188,12 @@ margin:5px 0;
 
 .announcement h1{
 font-family:'Playfair Display',serif;
-font-size:48px;
+font-size:clamp(32px, 8vw, 48px);
 margin:20px 0;
 }
 
 .and{
-font-size:40px;
+font-size:clamp(28px, 6vw, 40px);
 margin:20px 0;
 }
 
@@ -192,7 +204,7 @@ text-align:center;
 }
 .ceremony-title{
     font-family:'Playfair Display',serif;
-    font-size:40px;
+    font-size:clamp(28px, 7vw, 40px);
     letter-spacing:2px;
     margin-bottom:10px;
 }
@@ -234,10 +246,6 @@ text-align:center;
 }
 @media(max-width:768px){
 
-    .ceremony-title{
-        font-size:28px;
-    }
-
     .ceremony-subtitle{
         font-size:13px;        /* giảm nhẹ để đủ 1 dòng */
         letter-spacing:1px;    /* giảm spacing để khỏi tràn */
@@ -260,7 +268,7 @@ text-align:center;
 
 }
 .time-big{
-font-size:48px;
+font-size:clamp(36px, 8vw, 48px);
 font-family:'Playfair Display',serif;
 margin:20px 0;
 }
@@ -274,7 +282,7 @@ margin:15px 0;
 }
 
 .date-number{
-font-size:40px;
+font-size:clamp(32px, 7vw, 40px);
 font-family:'Playfair Display',serif;
 border-left:1px solid #b34b4b;
 border-right:1px solid #b34b4b;
@@ -372,6 +380,7 @@ background:rgba(0,0,0,0.9);
 justify-content:center;
 align-items:center;
 z-index:9999;
+padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .gallery-modal img{
@@ -382,11 +391,16 @@ border-radius:10px;
 
 .close-btn{
 position:absolute;
-top:30px;
-right:40px;
+top:calc(30px + env(safe-area-inset-top));
+right:calc(40px + env(safe-area-inset-right));
 color:white;
 font-size:30px;
 cursor:pointer;
+min-width:44px;
+min-height:44px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .nav{
@@ -397,10 +411,15 @@ color:white;
 font-size:40px;
 cursor:pointer;
 padding:20px;
+min-width:44px;
+min-height:44px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
-.prev{left:30px;}
-.next{right:30px;}
+.prev{left:calc(30px + env(safe-area-inset-left));}
+.next{right:calc(30px + env(safe-area-inset-right));}
 
 .lucky-money{
 text-align:center;
@@ -517,13 +536,18 @@ font-size:20px;
 margin-bottom:10px;
 }
 
-.close-btn{
+.money-header .close-btn{
 position:absolute;
-right:20px;
-top:10px;
+right:calc(20px + env(safe-area-inset-right));
+top:calc(10px + env(safe-area-inset-top));
 font-size:22px;
 cursor:pointer;
 color:#c3565a;
+min-width:44px;
+min-height:44px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 /* Body */
@@ -583,13 +607,19 @@ transform:scale(1);
 .music-btn{
 position:fixed;
 left:20px;
-bottom:20px;
+bottom:calc(20px + env(safe-area-inset-bottom));
 background:white;
 border:none;
-padding:12px 15px;
+width:56px;
+height:56px;
 border-radius:50%;
 cursor:pointer;
 z-index:1000;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 .music-btn.playing{
     animation: spin 3s linear infinite;
@@ -626,9 +656,12 @@ font-family:'Poppins';
 background:#c3565a;
 color:white;
 border:none;
-padding:12px;
+padding:15px 30px;
+min-height:44px;
 border-radius:30px;
 cursor:pointer;
+font-size:16px;
+font-weight:500;
 }
 
 #rsvpForm button:hover{
@@ -674,7 +707,7 @@ Xem Thiệp
 <div class="family">
 <div class="family-box">
 <p>Nhà Trai</p>
-<h3>Đoàn Văn Lôi</h3>
+<h3>Đoàn Văn Lối</h3>
 <h3>Trần Thị Kích</h3>
 <p>Thôn Chu Trần - Tiến Thịnh - Mê Linh - Hà Nội</p>
 </div>
@@ -683,7 +716,7 @@ Xem Thiệp
 <p>Nhà Gái</p>
 <h3>Vương Đức Bắc</h3>
 <h3>Nguyễn Thị Khuyên</h3>
-<p>43 - phố Đoàn Kết- khu TTTM Ghé - Tân Trường - Cẩm Giàng - Hải Dương</p>
+<p>43 - phố Đoàn Kết- khu TTTM Ghẽ - Tân Trường - Cẩm Giàng - Hải Dương</p>
 </div>
 </div>
 
@@ -751,7 +784,7 @@ Xem Thiệp
 
     <div class="address-box">
         <h4>📍 Nhà Gái</h4>
-        <p>43 Phố Đoàn Kết - Tân Trường - Cẩm Giàng - Hải Dương</p>
+        <p>43 Phố Đoàn Kết - khu TTTM Ghẽ - Tân Trường - Cẩm Giàng - Hải Dương</p>
     </div>
 
 </div>
@@ -997,10 +1030,12 @@ function handleSwipe(){
 /* QR */
 function openEnvelope(){
 document.getElementById("moneyPopup").classList.add("active");
+document.body.classList.add("popup-open");
 }
 
 function closeEnvelope(){
 document.getElementById("moneyPopup").classList.remove("active");
+document.body.classList.remove("popup-open");
 }
 document.getElementById("moneyPopup").addEventListener("click", function(e){
 if(e.target === this){
