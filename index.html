@@ -18,9 +18,15 @@ body{
 font-family:'Poppins',sans-serif;
 background:#fffaf5;
 scroll-behavior:smooth;
-overflow:hidden;   /* khóa scroll lúc đầu */
 overflow-x:hidden;
 text-align:center;
+}
+/* LOCK SCROLL */
+body.lock-scroll{
+    overflow:hidden;
+    height:100vh;
+    position:fixed;
+    width:100%;
 }
 /* HERO */
 .hero{
@@ -890,9 +896,9 @@ AOS.init();
 function openInvitation(){
 
     // Mở scroll lại
-    document.body.style.overflow = "auto";
+    document.body.classList.remove("lock-scroll");
 
-    // Scroll xuống
+    // Scroll xuống nội dung
     document.getElementById("info")
         .scrollIntoView({behavior:"smooth"});
 
@@ -1051,6 +1057,8 @@ document.getElementById("rsvpMessage").innerHTML =
 });
 });
 </script>
-
+<script>
+document.body.classList.add("lock-scroll");
+</script>
 </body>
 </html>
