@@ -7,12 +7,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Wedding | Hải Yến & Quang Vinh</title>
 
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon.png">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 <style> 
 *{
 margin:0;
@@ -147,13 +147,22 @@ text-shadow:
 }
 /* SECTION */
 section{
-padding:100px 10%;
+padding:80px 10%;
 }
 
 h2{
 font-family:'Playfair Display',serif;
-font-size:clamp(24px, 6vw, 36px);
-margin-bottom:50px;
+font-size:clamp(28px, 7vw, 40px);
+font-weight:700;
+color:#b34b4b;
+letter-spacing:1px;
+margin-bottom:30px;
+}
+
+@media(max-width:768px){
+section{
+padding:60px 5%;
+}
 }
 
 /* INFOR */
@@ -175,10 +184,29 @@ width:45%;
 min-width:300px;
 }
 
+.family-box p:first-child{
+font-size:14px;
+letter-spacing:1px;
+margin-bottom:8px;
+color:#b34b4b;
+font-weight:500;
+}
+
 .family-box h3{
 font-family:'Playfair Display',serif;
-font-size:22px;
+font-size:clamp(18px, 4.5vw, 22px);
+font-weight:600;
 margin:5px 0;
+color:#b34b4b;
+}
+
+.family-box p:last-child{
+font-family:'Poppins',sans-serif;
+font-size:clamp(13px, 3.5vw, 15px);
+font-weight:400;
+line-height:1.6;
+color:#666;
+margin-top:12px;
 }
 
 .announcement p{
@@ -189,6 +217,8 @@ margin:5px 0;
 .announcement h1{
 font-family:'Playfair Display',serif;
 font-size:clamp(32px, 8vw, 48px);
+font-weight:700;
+color:#b34b4b;
 margin:20px 0;
 }
 
@@ -197,8 +227,14 @@ font-size:clamp(28px, 6vw, 40px);
 margin:20px 0;
 }
 
-.ceremony,.reception{
-background:#fdf7f2;
+.ceremony{
+background:#ffe8e8;
+color:#b34b4b;
+text-align:center;
+}
+
+.reception{
+background:#fff5f5;
 color:#b34b4b;
 text-align:center;
 }
@@ -216,10 +252,13 @@ text-align:center;
     color:#b34b4b;
 }
 .ceremony-address{
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(13px, 3.5vw, 15px);
+    font-weight:400;
+    line-height:1.6;
+    color:#666;
     margin-top:15px;
-    font-size:14px;
-    letter-spacing:1px;
-    color:#b34b4b;
+    letter-spacing:0.5px;
 }
 .reception-address{
     display:flex;
@@ -241,8 +280,11 @@ text-align:center;
 }
 
 .address-box p{
-    font-size:14px;
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(13px, 3.5vw, 15px);
+    font-weight:400;
     line-height:1.6;
+    color:#666;
 }
 @media(max-width:768px){
 
@@ -318,6 +360,77 @@ font-size:20px;
 color:#b34b4b;
 font-weight:500;
 letter-spacing:1px;
+}
+
+/* ================= LOCATION MAPS ================= */
+
+.location-maps{
+background:#f8f4ef;
+color:#b34b4b;
+text-align:center;
+padding:80px 10%;
+}
+
+.maps-container{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.map-box{
+flex:1;
+min-width:300px;
+max-width:500px;
+}
+
+.map-box h3{
+font-family:'Playfair Display',serif;
+font-size:20px;
+color:#b34b4b;
+margin-bottom:10px;
+}
+
+.map-address{
+font-family:'Poppins',sans-serif;
+font-size:14px;
+color:#666;
+margin-bottom:20px;
+line-height:1.6;
+}
+
+.map-wrapper{
+width:100%;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.map-wrapper iframe{
+display:block;
+width:100%;
+height:400px;
+border:none;
+}
+
+@media(max-width:768px){
+.location-maps{
+padding:60px 5%;
+}
+
+.maps-container{
+flex-direction:column;
+gap:30px;
+}
+
+.map-box{
+max-width:100%;
+}
+
+.map-wrapper iframe{
+height:300px;
+}
 }
 
 /* ================= ALBUM GRID ================= */
@@ -625,7 +738,7 @@ box-shadow:0 4px 12px rgba(0,0,0,0.15);
     animation: spin 3s linear infinite;
 }
 .rsvp{
-padding:100px 10%;
+padding:0px 10% 50px 10%;
 text-align:center;
 background:#fdf7f2;
 }
@@ -650,6 +763,39 @@ padding:12px;
 border-radius:10px;
 border:1px solid #ddd;
 font-family:'Poppins';
+}
+
+.radio-group{
+display:flex;
+gap:20px;
+justify-content:center;
+padding:10px 0;
+}
+
+.radio-group label{
+display:flex;
+align-items:center;
+gap:8px;
+cursor:pointer;
+font-family:'Poppins';
+font-size:15px;
+color:#666;
+transition:.3s;
+}
+
+.radio-group label:hover{
+color:#c3565a;
+}
+
+.radio-group input[type="radio"]{
+width:20px;
+height:20px;
+cursor:pointer;
+accent-color:#c3565a;
+}
+
+.radio-group label span{
+user-select:none;
 }
 
 #rsvpForm button{
@@ -702,7 +848,7 @@ Xem Thiệp
 </div>
 </div>
 <!-- WEDDING INFO -->
-<section id="info" class="wedding-info">
+<!-- <section id="info" class="wedding-info">
 
 <div class="family">
 <div class="family-box">
@@ -733,10 +879,10 @@ Xem Thiệp
 <span>CON GÁI</span>
 </div>
 
-</section>
+</section> -->
 
 <!-- CEREMONY -->
-<section class="ceremony">
+<section id="info" class="ceremony">
 <h2 class="ceremony-title">
     LỄ THÀNH HÔN
 </h2>
@@ -746,7 +892,7 @@ Xem Thiệp
 </p>
 <p>VÀO LÚC</p>
 
-<div class="time-big">09:00</div>
+<div class="time-big">10:30</div>
 
 <div class="date-row">
 <span>CHỦ NHẬT</span>
@@ -851,6 +997,32 @@ Sự hiện diện của quý khách là niềm vinh hạnh của gia đình ch�
 
 </section>
 
+<!-- LOCATION MAPS -->
+<section class="location-maps">
+<h2>ĐỊA ĐIỂM TỔ CHỨC</h2>
+
+<div class="maps-container">
+
+<div class="map-box">
+<h3>📍 Nhà Gái</h3>
+<p class="map-address">43 Phố Đoàn Kết - khu TTTM Ghẽ - Tân Trường - Cẩm Giàng - Hải Dương</p>
+<div class="map-wrapper">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14905.417067061037!2d106.20826952248254!3d20.93828365347749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135990067a39f47%3A0x1b851f047c539be6!2zRklUQ0FSRUUgMjkwIC0gSOG7hyBUaOG7kW5nIFBow7JuZyBU4bqtcCBLaeG7g20gU2_DoXQgQ8OibiBO4bq3bmc!5e0!3m2!1svi!2s!4v1771908656707!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+
+<div class="map-box">
+<h3>📍 Nhà Trai</h3>
+<p class="map-address">Thôn Chu Trần - Tiến Thịnh - Mê Linh - Hà Nội</p>
+<div class="map-wrapper">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14880.879757354433!2d105.6335288286143!3d21.183420131956908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134f900700edb17%3A0x105cd3deb39dda99!2zTmjDoCBWxINuIEhvw6EgKGPFqSkgLSBUaMO0biBDaHUgVHLhuqdu!5e0!3m2!1svi!2s!4v1771908587100!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+
+</div>
+
+</section>
+
 <!-- POPUP QR -->
 <!-- POPUP MUNG CUOI -->
 <div class="money-popup" id="moneyPopup">
@@ -899,10 +1071,17 @@ Cảm ơn bạn đã đồng hành cùng chúng mình trong ngày trọng đại
 
 <input type="number" name="guests" placeholder="Số người tham dự" required>
 
-<select name="attending">
-<option value="Có tham dự">Có tham dự</option>
-<option value="Không tham dự">Không tham dự</option>
-</select>
+<div class="radio-group">
+<label>
+<input type="radio" name="attending" value="Có tham dự" checked>
+<span>Có tham dự</span>
+</label>
+
+<label>
+<input type="radio" name="attending" value="Không tham dự">
+<span>Không tham dự</span>
+</label>
+</div>
 
 <textarea name="message" placeholder="Gửi lời chúc đến cô dâu chú rể"></textarea>
 
